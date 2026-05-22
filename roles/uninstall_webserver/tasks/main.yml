@@ -1,0 +1,28 @@
+---
+- name: Set OS specific variables for RedHat/CentOS
+  ansible.builtin.set_fact:
+    apache_pkg: httpd
+  when: ansible_os_family == "RedHat"
+
+- name: Set OS specific variables for Debian/Ubuntu
+  ansible.builtin.set_fact:
+    apache_pkg: apache2
+  when: ansible_os_family == "Debian"
+
+- name: Stop the Apache service
+  ansible.builtin.service:
+    name: "{{ apache_pkg }}"
+    state: stopped
+    enabled: false
+  ignore_errors: true
+
+- name: Purge Apache packages
+  ansible.builtin.package:
+    name: "{{ apache_pkg }}"
+    state: absent
+
+- name: Remove website files and HTML directory
+  ansible.builtin.file:
+    path: /var/www/html/index.html
+    state: absent
+
