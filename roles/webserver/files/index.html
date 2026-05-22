@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Automation Hub</title>
+    <!-- Bootstrap 5 CSS via CDN -->
+    <link href="https://jsdelivr.net" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --accent-pink: #f43f5e;
+            --accent-purple: #a855f7;
+            --accent-cyan: #06b6d4;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: #f8fafc;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Vibrant Glowing Mesh Backgrounds */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(244,63,94,0.15) 0%, rgba(0,0,0,0) 70%);
+            top: -100px;
+            left: -100px;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(168,85,247,0.15) 0%, rgba(0,0,0,0) 70%);
+            top: 300px;
+            right: -150px;
+            z-index: -1;
+        }
+
+        /* Hero Header Custom Gradient Text */
+        .hero-section {
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #a855f7 50%, #f43f5e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        /* Sleek Glassmorphism Cards */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Neon Accent Borders on top of cards */
+        .card-pink::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--accent-pink); }
+        .card-purple::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--accent-purple); }
+        .card-cyan::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--accent-cyan); }
+
+        /* Custom Glowing Buttons */
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-pink) 100%);
+            color: white;
+            border: none;
+            font-weight: 600;
+            padding: 12px 32px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+        }
+
+        .btn-gradient:hover {
+            color: white;
+            opacity: 0.95;
+            box-shadow: 0 6px 20px rgba(244, 63, 94, 0.6);
+            transform: scale(1.02);
+        }
+
+        .badge-pulse {
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark pt-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">⚡ ACME OS</a>
+            <span class="badge badge-pulse fw-bold text-uppercase">Cluster Active</span>
+        </div>
+    </nav>
+
+    <!-- Glowing Hero Section -->
+    <header class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <h1 class="display-2 gradient-text mb-4">Infrastructure Managed via Code</h1>
+                    <p class="lead text-secondary fs-4 mb-5 mx-auto" style="max-width: 700px;">
+                        Welcome to your beautifully automated web node. This cluster instance was spun up, validated, and styled directly via automated git workflows.
+                    </p>
+                    <button class="btn btn-gradient btn-lg shadow">Launch Console</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Responsive Card Grid with Multi-Color Accents -->
+    <main class="container mb-5 pb-5">
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="glass-card card-pink p-4 h-100">
+                    <div class="fs-1 mb-3">🔮</div>
+                    <h3 class="h4 fw-bold mb-2">Modern UI Stack</h3>
+                    <p class="text-secondary mb-0">Engineered with dark mode primitives, dynamic glowing neon gradients, and responsive layouts built for stunning high-res displays.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-card card-purple p-4 h-100">
+                    <div class="fs-1 mb-3">🚀</div>
+                    <h3 class="h4 fw-bold mb-2">Ansible Driven</h3>
+                    <p class="text-secondary mb-0">Zero point-and-click deployment overhead. Your software delivery lifecycle configurations are completely codified from top to bottom.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-card card-cyan p-4 h-100">
+                    <div class="fs-1 mb-3">🛡️</div>
+                    <h3 class="h4 fw-bold mb-2">Immutable Design</h3>
+                    <p class="text-secondary mb-0">Fully decoupled architecture ensuring state drift protection and pristine execution guarantees directly on the node layer.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Clean Minimal Footer -->
+    <footer class="text-center py-4 border-top border-secondary border-opacity-10 mt-5">
+        <p class="small text-muted mb-0">&copy; Automated Infrastructure Services</p>
+    </footer>
+
+</body>
+</html>
+

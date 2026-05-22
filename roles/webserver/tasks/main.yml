@@ -1,0 +1,32 @@
+---
+- name: Set OS specific variables for RedHat/CentOS
+  ansible.builtin.set_fact:
+    apache_pkg: httpd
+    apache_user: apache
+  when: ansible_os_family == "RedHat"
+
+- name: Set OS specific variables for Debian/Ubuntu
+  ansible.builtin.set_fact:
+    apache_pkg: apache2
+    apache_user: www-data
+  when: ansible_os_family == "Debian"
+
+- name: Install Apache package
+  ansible.builtin.package:
+    name: "{{ apache_pkg }}"
+    state: present
+
+- name: Copy attractive website files to the server
+  ansible.builtin.copy:
+    src: index.html
+    dest: /var/www/html/index.html
+    owner: "{{ apache_user }}"
+    group: "{{ apache_user }}"
+    mode: '0644'
+
+- name: Start and enable Apache service
+  ansible.builtin.service:
+    name: "{{ apache_pkg }}"
+    state: started
+    enabled: true
+
